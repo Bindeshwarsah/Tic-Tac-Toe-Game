@@ -1,0 +1,75 @@
+.container{
+    width: 30vw;
+    height: 90vh;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2.6875rem;
+    background: #192A32;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    gap:1vw;
+    width: 18vw;
+}
+.logoImage{
+    width: 12%;
+}
+
+.newgameBtn{
+    display: flex;
+    flex-direction: column;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22vw;
+    height: 6vh;
+    border-radius: .5rem;
+    color: #192A32;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 2.3vmin;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    border: none;
+    outline: none;
+    margin-block-start: 3vh;
+    cursor: pointer;
+}
+.newgame{
+    background-color:#F2B237;
+}
+.comingsoon{
+    background-color: #32C4C3;
+}
+.playerBtn{
+    width: 25%;
+}
+
+Link{
+    text-decoration: none;
+}
+
+@media screen and (max-width:768px ){
+    .container{
+        width: 40vw;
+    }
+
+}
+
+@media screen and (max-width:426px ){
+    .container{
+        width: 80vw;
+    }
+   .btn{
+    width: 50vw;
+   }
+   .logoImage{
+    width: 35%;
+}
+    
+}

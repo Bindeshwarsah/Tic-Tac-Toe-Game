@@ -1,0 +1,22 @@
+.boardContainer{
+    width: 30vw;
+    height: 90vh;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2.6875rem;
+    background: #192A32;
+    gap:1.5vw;
+}
+.currentPlayer{
+    color: white;
+}
+
+@media screen and (max-width:426px ){
+    .boardContainer{
+        width: 80vw;
+        gap:3.5vw;
+    }
+
+}

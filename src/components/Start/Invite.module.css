@@ -1,0 +1,23 @@
+.btnInvite{
+    border-radius: 0.3125rem;
+    background: #F2B237;
+    width: 18vw;
+    height: 5vh;
+    color: #192A32;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 2.6vmin;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    border: none;
+    outline: none;
+    margin-block-start: 6vh;
+    cursor: pointer;
+}
+
+@media screen and (max-width:430px ){
+    .btnInvite{
+     width: 50vw;
+    }
+     
+ }

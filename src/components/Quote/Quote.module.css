@@ -1,0 +1,55 @@
+.quoteContainer{
+    position: fixed;
+    left: 3vw;
+    bottom: 2.5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    height: 45vh;
+    background-color: #192A32;
+    border-radius: 1.125rem;
+}
+.idContainer{
+    color: #31C4BE;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 4vmin;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+.adviveContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:20vw;
+    height: 33vh;
+    color: #F2B237;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 3.5vmin;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+.stars{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../icons/Quote_Ellipse.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 2rem;
+    height: 4rem;
+}
+
+@media screen and (max-width:426px ){
+    .quoteContainer{
+     opacity: 0;
+    }
+  
+  
+  
+  }

@@ -1,0 +1,42 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 21vw;
+    background-color: transparent;
+}
+.user,
+.ties,
+.cpu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    width: 6vw;
+    height: 10vh;
+    border-radius: 0.625vw;
+    font-size: 2vmin;
+}
+.user{
+    background: #31C4BE;
+}
+.ties{
+    background-color: #A8BEC9;
+}
+.cpu{
+    background-color: #F2B237;
+}
+
+@media screen and (max-width:426px ){
+    .footer{
+      width: 50vw;
+    }
+    .user,
+    .ties,
+    .cpu{
+        width: 15vw;
+        border-radius: 1vw;
+        font-size: 3.5vmin;
+    }
+}

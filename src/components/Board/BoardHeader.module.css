@@ -1,0 +1,90 @@
+.boardHeader{
+    display: flex;
+    justify-content: space-between;
+    width: 20.5vw;
+    gap: 1.5vw;
+   
+}
+
+.logo{
+    
+    display: flex;
+    width: 5.8vw;
+    gap:0.6vw;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap:1vmin;
+    width: 6vw;
+    height: 2.4375rem;
+    border-radius: 0.625rem;
+    background-color: #1F3540;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+}
+.btnText{
+    color: #A8BEC9;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 2vmin;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-transform: uppercase;
+}
+.largeImage{
+    width: 40%;
+}
+.xTurn{
+    width: 25%;
+}
+.oTurn{
+    width: 27%;
+    stroke-width: 4px;
+    stroke: #ACC2CD;
+}
+.refresh{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.refreshIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5vw;
+    height: 5vh;
+    cursor: pointer;
+    margin-inline-start: 2vw;
+    border-radius: 0.3125rem;
+    background: #A7BDC8;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+}
+.refreshLogo{
+    width: 70%;
+    height: 70%;
+}
+
+@media screen and (max-width:426px ){
+    .boardHeader{
+        width: 48vw;
+    }
+    .logo{
+        width: 15vw;
+        /* gap:1.2vw; */
+    }
+    .btn{
+        width: 15vw;
+    }   
+    .refreshIcon{
+        width: 8vw;
+        height: 6vh;
+    } 
+    .btnText{
+        font-size: 3vmin;
+    }
+
+}

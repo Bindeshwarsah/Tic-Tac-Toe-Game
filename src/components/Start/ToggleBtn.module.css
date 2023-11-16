@@ -1,0 +1,70 @@
+ .activeButton{
+    background-image:url("../icons/O_bg_image.svg");
+    background-position: center;
+    border-radius: 5px;
+    padding: 3px;
+ }
+
+ .innerContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 22vw;
+    height: 20vh;
+    gap:1rem;
+    margin-block: 3vh;
+    border-radius: 0.4375rem;
+    background: #1F3540;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.heading{
+    color: #FFF;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 3.5vmin;
+    font-style: normal;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: normal;
+}
+.pickPlayer{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 18vw;
+    height: 7vh;
+    padding: 1rem;
+    border-radius: 0.3125rem;
+    background: #192A32;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+ .player{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7vw;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width:430px ){
+    .innerContainer{
+        width: 50vw;
+    }
+    .pickPlayer{
+        width: 30vw; 
+    }
+    .activeButton{
+        padding-inline: 18px;
+    }
+    
+}
+
+
+
+
+
+
+
+

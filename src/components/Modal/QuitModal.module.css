@@ -1,0 +1,94 @@
+
+.modalContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    height: 90vh;
+    position: fixed;
+    top:5.2vh;
+    left: 35vw;
+    border-radius: 2.6875rem;
+    background-color: rgba(0, 0, 0, 0.73);
+    
+}
+.modalInnerContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    height: 30vh;
+    gap:4vw;
+    background-color: #192A32;
+}
+.heading{
+    color: #F2B237;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 3.5vmin;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+.btn{
+    width: 78%;
+    display: flex;
+    justify-content: space-between;
+    
+
+.Btn{
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+}
+.PlayAgain{
+    width: 11vw;
+    height: 6vh;
+    border-radius: 0.625rem;
+    background-color: #31C4BE;
+    color: #192A32;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 2.5vmin;
+}
+.Quit{
+    width: 9vw;
+    height: 6vh;
+    border-radius: 0.625rem;
+    background: #F2B237;
+    color: #192A32;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 2.8vmin;
+}
+
+@media screen and (max-width:425px ){
+    .modalContainer{
+       
+     width: 80vw;
+     position: fixed;
+     left: 10vw;
+     top: 5.2vh;
+        
+    }
+    .modalInnerContainer{
+        width: 80vw;
+    }
+    .PlayAgain{
+        width: 28vw;
+        font-size: 3.8vmin;
+    }
+    .Quit{
+        width: 20vw;
+        font-size: 3.8vmin;
+    }
+    .heading{
+        font-size: 4.5vmin;
+    }
+  
+  }
