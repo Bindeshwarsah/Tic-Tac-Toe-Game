@@ -57,6 +57,7 @@ Link{
 @media screen and (max-width:768px ){
     .container{
         width: 40vw;
+        
     }
 
 }
@@ -64,9 +65,11 @@ Link{
 @media screen and (max-width:426px ){
     .container{
         width: 80vw;
+        height: 85vh;
     }
    .btn{
     width: 50vw;
+    font-size: 2.5vmin;
    }
    .logoImage{
     width: 35%;

@@ -16,6 +16,7 @@
 @media screen and (max-width:426px ){
     .boardContainer{
         width: 80vw;
+        height: 85vh;
         gap:3.5vw;
     }
 

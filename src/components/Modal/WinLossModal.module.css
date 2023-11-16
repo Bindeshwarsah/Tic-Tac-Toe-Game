@@ -97,12 +97,12 @@
 
 
 @media screen and (max-width:425px ){
-    .modalContainer{
-       
-     width: 80vw;
-     position: fixed;
-     left: 10vw;
-     top: 5.2vh;
+    .modalContainer{    
+        width: 80vw;
+        height: 85vh;
+        position: fixed;
+        left: 10vw;
+        top: 7.2vh;
         
     }
     .modalInnerContainer{
