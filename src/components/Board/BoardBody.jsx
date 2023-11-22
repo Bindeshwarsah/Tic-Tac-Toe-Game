@@ -17,4 +17,3 @@ const BoardBody = ({ boardBody,handleUserMove,playerSymbol}) => {
 }
 
 export default BoardBody
-

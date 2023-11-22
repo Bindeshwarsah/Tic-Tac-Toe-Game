@@ -4,7 +4,7 @@ import ResetButton from '../Board/ResetButton';
 import O_image from "../icons/yellow-O-logo.svg";
 import X_image from "../icons/aqua-X-logo.svg"
 
-const WinLossModal = ({ onClose, setScores, result }) => {
+const WinLossModal = ({ onClose, setScores, result,clearBoard }) => {
   const [scores, setLocalScores] = useState({
     human: 0,
     pc: 0,
@@ -42,11 +42,15 @@ const WinLossModal = ({ onClose, setScores, result }) => {
     });
   };
 
-  const handlePlayAgainBtn = () => {
+  const handleNextRoundBtn = () => {
     localStorage.removeItem('board');
     onClose(false); // Call the callback function provided by the parent to hide the modal
 
-    window.location.reload();
+    // window.location.reload();
+    if (typeof clearBoard === 'function') {
+      console.log('Calling clearBoard');
+      clearBoard()
+  }
   };
 
   const getResultText = () => {
@@ -96,8 +100,8 @@ const WinLossModal = ({ onClose, setScores, result }) => {
           <button className={`${styles.Quit} ${styles.Btn}`} onClick={handleReset}>
             Quit
           </button>
-          <button className={`${styles.PlayAgain} ${styles.Btn}`} onClick={handlePlayAgainBtn}>
-            Play Again
+          <button className={`${styles.PlayAgain} ${styles.Btn}`} onClick={handleNextRoundBtn}>
+            Next Round
           </button>
         </div>
         <ResetButton onReset={handleReset} />

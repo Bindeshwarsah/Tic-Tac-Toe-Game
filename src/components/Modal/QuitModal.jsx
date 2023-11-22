@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from "./QuitModal.module.css";
 import ResetButton from '../Board/ResetButton';
 
-const QuitModal = ({ onClose, setScores }) => {
+const QuitModal = ({ onClose, setScores, clearBoard}) => {
   const [scores, setLocalScores] = useState({
     human: 0,
     pc: 0,
@@ -15,7 +15,7 @@ const QuitModal = ({ onClose, setScores }) => {
     localStorage.removeItem('playerChoice');
 
     // Refresh the window to reflect the changes
-    window.location.reload();
+    // window.location.reload();
     window.history.back();
 
     // Reset scores in state
@@ -40,11 +40,39 @@ const QuitModal = ({ onClose, setScores }) => {
     });
   };
 
-  const handlePlayAgainBtn = () => {
+  const handlePlayAgain = () => {
+    console.log('handlePlayAgain called');
     localStorage.removeItem('board');
-    onClose(false); // Call the callback function provided by the parent to hide the modal
+    localStorage.removeItem('playerChoice');
+    onClose(false);
+    console.log('Calling clearBoard');
+    if (typeof clearBoard === 'function') {
+      clearBoard(); // Corrected function name
+    }
+    
+    setLocalScores({
+      human: 0,
+      pc: 0,
+      ties: 0,
+    });
 
+    // Save scores to local storage
+    localStorage.setItem('scores', JSON.stringify({
+      human: 0,
+      pc: 0,
+      ties: 0,
+    }));
+
+    // Update scores in the parent component's state
+    setScores({
+      human: 0,
+      pc: 0,
+      ties: 0,
+    });
     window.location.reload();
+    // window.history.back();
+    
+
   };
 
   return (
@@ -54,7 +82,7 @@ const QuitModal = ({ onClose, setScores }) => {
           <h3>Do you want to quit?</h3>
         </div>
         <div className={styles.btn}>
-          <button className={`${styles.PlayAgain} ${styles.Btn}`} onClick={handlePlayAgainBtn}>
+          <button className={`${styles.PlayAgain} ${styles.Btn}`} onClick={handlePlayAgain}>
             Play Again
           </button>
           <button className={`${styles.Quit} ${styles.Btn}`} onClick={handleReset}>
@@ -68,3 +96,11 @@ const QuitModal = ({ onClose, setScores }) => {
 };
 
 export default QuitModal;
+
+
+
+
+
+
+
+

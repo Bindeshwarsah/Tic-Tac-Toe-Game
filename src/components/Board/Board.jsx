@@ -7,31 +7,15 @@ import QuitModal from '../Modal/QuitModal';
 import WinLossModal from '../Modal/WinLossModal';
 
 const Board = ({ refreshIcon, footer }) => {
-  // State for the game board
   const [board, setBoard] = useState(Array(9).fill(null));
-
-  // State for the current player (either 'HUMAN' or 'PC')
   const [currentPlayer, setCurrentPlayer] = useState('HUMAN');
-
-  // State for the player's symbol ('X' or 'O')
   const [playerSymbol, setPlayerSymbol] = useState("X");
-
-  // State for game scores (number of wins for HUMAN, PC, and ties)
   const [scores, setScores] = useState({ human: 0, pc: 0, ties: 0 });
-
-  // State to track whether the game is over
   const [gameOver, setGameOver] = useState(false);
-
-  // State to control the display of the Quit Modal
   const [showQuitModal, setShowQuitModal] = useState(false);
-
-  // State to control the display of the Win/Loss Modal
   const [showWinLossModal, setShowWinLossModal] = useState(false);
-
-  // State to store the result of the game for the Win/Loss Modal
   const [winLossResult, setWinLossResult] = useState(null);
 
-  // useEffect hook to initialize the game state from local storage
   useEffect(() => {
     // Retrieve the player's choice from local storage (default to 'X' if not present)
     const storedChoice = localStorage.getItem('playerChoice') || 'X';
@@ -150,40 +134,31 @@ const Board = ({ refreshIcon, footer }) => {
     // Switch to the next player (HUMAN)
     setCurrentPlayer('HUMAN');
 
-    // Save the updated board to local storage
     localStorage.setItem('board', JSON.stringify(updatedBoard));
   };
 
-  // Function to check the result of the game
   const checkGameResult = (currentBoard) => {
     for (const condition of winningConditions) {
       const [a, b, c] = condition;
       if (currentBoard[a] && currentBoard[a] === currentBoard[b] && currentBoard[a] === currentBoard[c]) {
-        // If a winning condition is met, set the game as over and return the winning symbol ('X' or 'O')
         setGameOver(true);
         return currentBoard[a];
       }
     }
 
-    // If there are no empty cells left, set the game as over and return 'TIE'
     if (!currentBoard.includes(null)) {
       setGameOver(true);
       return 'TIE';
     }
-
-    // If no winner yet, return null
     return null;
   };
 
-  // Function to handle the result of the game
   const handleGameResult = (result) => {
-    // If the result is 'X', 'O', or 'TIE', show the Win/Loss Modal
     if (result === 'X' || result === 'O' || result === 'TIE') {
       setShowWinLossModal(true);
       setWinLossResult(result);
     }
 
-    // Function to update the scores based on the result
     const updateScores = (key) => {
       setScores((prevScores) => {
         const newScores = { ...prevScores, [key]: prevScores[key] + 1 };
@@ -192,20 +167,30 @@ const Board = ({ refreshIcon, footer }) => {
       });
     };
 
-    // Update scores based on the result
     if (result === 'X') updateScores('human');
     else if (result === 'O') updateScores('pc');
     else if (result === 'TIE') updateScores('ties');
   };
-
-  // Function to handle the close event of the Quit Modal
   const handleModalClose = () => setShowQuitModal(false);
-
-  // Function to handle the close event of the Win/Loss Modal
   const handleWinLossModalClose = () => {
     setShowWinLossModal(false);
     setWinLossResult(null);
   };
+
+  
+  const clearBoard  = () => {
+    console.log("Clearing the board...");
+    setBoard(Array(9).fill(null));
+    setCurrentPlayer(playerSymbol === 'X' ? 'HUMAN' : 'PC');
+    setGameOver(false);
+    localStorage.removeItem('board');
+    localStorage.removeItem('playerChoice');
+    setWinLossResult(null);
+    
+
+  };
+
+
 
   // useEffect hook to trigger the PC's move when the current player changes
   useEffect(() => {
@@ -228,7 +213,7 @@ const Board = ({ refreshIcon, footer }) => {
     <div className={styles.boardContainer}>
       {/* Board Header Component */}
       <div className={styles.boardHeader}>
-        <BoardHeader currentPlayer={currentPlayer} refreshIcon={refreshIcon} setScores={setScores} />
+        <BoardHeader currentPlayer={currentPlayer} refreshIcon={refreshIcon} setScores={setScores}  initialPlayer={playerSymbol}/>
       </div>
 
       {/* Board Body Component */}
@@ -244,14 +229,28 @@ const Board = ({ refreshIcon, footer }) => {
       )}
 
       {/* Quit Modal Component */}
-      {showQuitModal && <QuitModal onClose={handleModalClose} setScores={setScores} />}
+      {/* {showQuitModal && <QuitModal onClose={handleModalClose} setScores={setScores} />} */}
+
+      {showQuitModal && <QuitModal onClose={handleModalClose} setScores={setScores} clearBoard={clearBoard}/>}
 
       {/* Win/Loss Modal Component */}
       {showWinLossModal && (
-        <WinLossModal result={winLossResult} onClose={handleWinLossModalClose} setScores={setScores} />
+        <WinLossModal result={winLossResult} onClose={handleWinLossModalClose} setScores={setScores} clearBoard={clearBoard}/>
       )}
     </div>
   );
 };
 
 export default Board;
+
+
+
+
+
+
+
+
+
+
+
+

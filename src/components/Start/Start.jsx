@@ -77,9 +77,17 @@ const Start = () => {
 
         </div>
       )}
-      {showBoard && <PlayAgainBoard />}
+      {showBoard && <PlayAgainBoard toggleState={toggleState} />}
     </>
   );
 };
 
 export default Start;
+
+
+
+
+
+
+
+

@@ -10,6 +10,8 @@ const ResetButton = ({ onReset }) => {
     // Trigger the onReset function to inform the parent component
     onReset();
   };
+  
+  return ;
 };
   
   export default ResetButton;
